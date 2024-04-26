@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS trainer;
 
 CREATE TABLE region (
 	id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-	region_name varchar (50) NOT NULL
+	name varchar (50) NOT NULL
 );
 
 CREATE TABLE town (

@@ -1,9 +1,7 @@
-version: '3.6'
-
 services:
   db:
     image: postgres:16.2-alpine
-    container_name: pg-sn-cfg
+    container_name: pg-pk
     restart: always
     volumes:
       - pg-sn-cn:/var/lib/postgresql/data
@@ -15,7 +13,7 @@ services:
       - 5432:5432
   pg_admin:
     image: dpage/pgadmin4:8.5
-    container_name: pgadmin-sn-cfg
+    container_name: pgadmin-pk
     volumes:
       - pg-admin-cn-lookup:/var/lib/pgadmin
     depends_on:
