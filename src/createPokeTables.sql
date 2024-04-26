@@ -20,7 +20,7 @@ CREATE TABLE town (
 CREATE TABLE trainer (
 	id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
 	first_name varchar(30) NOT NULL,
-	last_name varchar(30) NOT NULL,
+	last_name varchar(30),
 	gender varchar(30),
 	age INT,
 	hometown_id INT REFERENCES town(id)
@@ -28,14 +28,14 @@ CREATE TABLE trainer (
 
 CREATE TABLE gym (
 	id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-	gym_name varchar(50) NOT NULL,
-	gym_leader_name varchar(50) NOT NULL,
-	region_id INT REFERENCES region(id)
+	name varchar(50) NOT NULL,
+	gym_leader varchar(50) NOT NULL,
+	town_id INT REFERENCES town(id)
 );
 
 CREATE TABLE badge (
 	id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-	badge_name varchar (50) NOT NULL,
+	name varchar (50) NOT NULL,
 	gym_id INT REFERENCES gym(id)
 );
 
