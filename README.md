@@ -16,6 +16,22 @@ cd pokemon-sql
 ```
 docker compose up --build -d
 ```
+4. In a web browser go to this address
+```
+http://localhost:5050
+```
+5. Sign in with the following credentials
+email: admin@mail.com
+password: postgres
+
+6. Connect PG Admin to the database
+  * Click the connect to the add new server button
+  * in the genearal tab you can name the connection whatever you'd like
+  * in the connection tab the host name/address needs to be db
+  * be sure to save the db password so you don't have to do this every time
+  * username: admin
+  * password: postgres
+  * click the save button on the popup window
 
 ### Helpful scripts for going quick
 * The command to run psql in docker
