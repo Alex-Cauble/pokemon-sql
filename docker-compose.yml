@@ -1,0 +1,33 @@
+version: '3.6'
+
+services:
+  db:
+    image: postgres:16.2-alpine
+    container_name: pg-sn-cfg
+    restart: always
+    volumes:
+      - pg-sn-cn:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+      POSTGRES_DB: ${PG_DB}
+    ports:
+      - 5432:5432
+  pg_admin:
+    image: dpage/pgadmin4:8.5
+    container_name: pgadmin-sn-cfg
+    volumes:
+      - pg-admin-cn-lookup:/var/lib/pgadmin
+    depends_on:
+      - db
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_USERNAME}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+    ports:
+      - 5050:80
+volumes:
+  pg-sn-cn:
+    external: false
+  pg-admin-cn-lookup:
+    external: false
